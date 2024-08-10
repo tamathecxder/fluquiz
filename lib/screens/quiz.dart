@@ -20,6 +20,10 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
+    final currentWidget = activeScreen == 'start-screen'
+        ? StartScreen(onSwitchScreen)
+        : const QuestionScreen();
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -27,9 +31,7 @@ class _QuizState extends State<Quiz> {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body: activeScreen == 'start-screen'
-            ? StartScreen(onSwitchScreen)
-            : const QuestionScreen(),
+        body: currentWidget,
       ),
     );
   }
