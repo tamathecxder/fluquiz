@@ -2,20 +2,20 @@ import 'package:advance_basics_app/screens/questions_screen.dart';
 import 'package:advance_basics_app/screens/start_screen.dart';
 import 'package:flutter/material.dart';
 
-class QuizScreenWidget extends StatefulWidget {
-  const QuizScreenWidget({super.key});
+class Quiz extends StatefulWidget {
+  const Quiz({super.key});
 
   @override
-  State<QuizScreenWidget> createState() => _QuizScreenWidgetState();
+  State<Quiz> createState() => _QuizState();
 }
 
-class _QuizScreenWidgetState extends State<QuizScreenWidget> {
-  var activeScreen = const StartScreen();
+class _QuizState extends State<Quiz> {
+  Widget activeScreen = const StartScreen();
 
-  onSwitchScreen() => {
+  onSwitchScreen() {
     setState(() {
-      activeScreen = QuestionScreen();
-    })
+      activeScreen = const QuestionScreen();
+    });
   }
 
   @override
@@ -26,8 +26,8 @@ class _QuizScreenWidgetState extends State<QuizScreenWidget> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Scaffold(
-        body: StartScreen(),
+      home: Scaffold(
+        body: activeScreen,
       ),
     );
   }
