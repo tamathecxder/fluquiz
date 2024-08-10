@@ -5,34 +5,45 @@ class StartScreenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Image.asset(
-            'assets/images/quiz-logo.png',
-            width: 250,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Text(
-            'You have pushed the button this many times:',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text(
-              "Start Quiz",
-            ),
-          )
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        colors: [
+          Colors.deepPurple.shade800,
+          Colors.deepPurple.shade400,
         ],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      )),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              'assets/images/quiz-logo.png',
+              width: 250,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              'You have pushed the button this many times:',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text(
+                "Start Quiz",
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
