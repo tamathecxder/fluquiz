@@ -17,6 +17,7 @@ class StartScreenWidget extends StatelessWidget {
       )),
       child: Center(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
