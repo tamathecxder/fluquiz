@@ -20,9 +20,12 @@ class StartScreenWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset(
-              'assets/images/quiz-logo.png',
-              width: 250,
+            Opacity(
+              opacity: 0.9,
+              child: Image.asset(
+                'assets/images/quiz-logo.png',
+                width: 250,
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -37,9 +40,10 @@ class StartScreenWidget extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            ElevatedButton(
+            ElevatedButton.icon(
               onPressed: () {},
-              child: const Text(
+              icon: const Icon(Icons.add),
+              label: const Text(
                 "Start Quiz",
               ),
             )
