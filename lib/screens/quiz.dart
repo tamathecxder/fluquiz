@@ -10,18 +10,11 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  Widget? activeScreen;
-
-  @override
-  void initState() {
-    activeScreen = StartScreen(onSwitchScreen);
-
-    super.initState();
-  }
+  var activeScreen = 'start-screen';
 
   void onSwitchScreen() {
     setState(() {
-      activeScreen = const QuestionScreen();
+      activeScreen = 'question-screen';
     });
   }
 
@@ -34,7 +27,9 @@ class _QuizState extends State<Quiz> {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body: activeScreen,
+        body: activeScreen == 'start-screen'
+            ? StartScreen(onSwitchScreen)
+            : const QuestionScreen(),
       ),
     );
   }
