@@ -22,7 +22,7 @@ class _QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     final currentWidget = activeScreen == 'start-screen'
         ? StartScreen(onSwitchScreen)
-        : const QuestionScreen();
+        : const QuestionsScreen();
 
     return MaterialApp(
       title: 'Flutter Demo',
