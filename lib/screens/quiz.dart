@@ -31,7 +31,19 @@ class _QuizState extends State<Quiz> {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body: currentWidget,
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.deepPurple.shade800,
+                Colors.deepPurple.shade400,
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: currentWidget,
+        ),
       ),
     );
   }
