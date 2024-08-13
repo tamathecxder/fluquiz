@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen({super.key, required this.onChooseAnswer});
+
+  final void Function(String answer) onChooseAnswer;
 
   @override
   State<QuestionsScreen> createState() => _QuestionsScreenState();
@@ -13,7 +15,9 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   int currentQuestionIndex = 0;
 
-  void onAnswerQuestion() {
+  handleAnswerQuestion(String answer) {
+    widget.onChooseAnswer(answer);
+
     setState(() {
       currentQuestionIndex++;
     });
@@ -47,7 +51,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               (answer) {
                 return AnswerButton(
                   answerText: answer,
-                  onTap: onAnswerQuestion,
+                  onTap: () => {
+                    handleAnswerQuestion(answer),
+                  },
                 );
               },
             )

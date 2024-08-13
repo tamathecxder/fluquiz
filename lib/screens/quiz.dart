@@ -1,3 +1,4 @@
+import 'package:advance_basics_app/data/questions.dart';
 import 'package:advance_basics_app/screens/questions_screen.dart';
 import 'package:advance_basics_app/screens/start_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,19 +11,33 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  List<String> selectedAnswers = [];
   var activeScreen = 'start-screen';
 
-  void onSwitchScreen() {
+  void handleSwitchScreen() {
     setState(() {
       activeScreen = 'question-screen';
     });
   }
 
+  void handleChooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        activeScreen = 'start-screen';
+        selectedAnswers = [];
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final currentWidget = activeScreen == 'start-screen'
-        ? StartScreen(onSwitchScreen)
-        : const QuestionsScreen();
+        ? StartScreen(handleSwitchScreen)
+        : QuestionsScreen(
+            onChooseAnswer: handleChooseAnswer,
+          );
 
     return MaterialApp(
       title: 'Flutter Demo',
