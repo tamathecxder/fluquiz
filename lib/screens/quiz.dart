@@ -1,5 +1,6 @@
 import 'package:advance_basics_app/data/questions.dart';
 import 'package:advance_basics_app/screens/questions_screen.dart';
+import 'package:advance_basics_app/screens/results_screen.dart';
 import 'package:advance_basics_app/screens/start_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class _QuizState extends State<Quiz> {
 
   void handleSwitchScreen() {
     setState(() {
-      activeScreen = 'question-screen';
+      activeScreen = 'questions-screen';
     });
   }
 
@@ -33,11 +34,24 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
-    final currentWidget = activeScreen == 'start-screen'
-        ? StartScreen(handleSwitchScreen)
-        : QuestionsScreen(
-            onChooseAnswer: handleChooseAnswer,
-          );
+    Widget currentWidget;
+
+    switch (activeScreen) {
+      case 'start-screen':
+        currentWidget = StartScreen(handleSwitchScreen);
+        break;
+      case 'questions-screen':
+        currentWidget = QuestionsScreen(
+          onChooseAnswer: handleChooseAnswer,
+        );
+        break;
+      case 'results-screen':
+        currentWidget = const ResultsScreen();
+        break;
+      default:
+        currentWidget = StartScreen(handleSwitchScreen);
+        break;
+    }
 
     return MaterialApp(
       title: 'Flutter Demo',
