@@ -46,7 +46,9 @@ class _QuizState extends State<Quiz> {
         );
         break;
       case 'results-screen':
-        currentWidget = const ResultsScreen();
+        currentWidget = ResultsScreen(
+          chosenAnswers: selectedAnswers,
+        );
         break;
       default:
         currentWidget = StartScreen(handleSwitchScreen);
