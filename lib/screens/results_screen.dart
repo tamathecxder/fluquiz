@@ -4,7 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key, required this.chosenAnswers});
+  const ResultsScreen({
+    super.key,
+    required this.chosenAnswers,
+    required this.onRestartQuiz,
+  });
+
+  final void Function() onRestartQuiz;
 
   final List<String> chosenAnswers;
 
@@ -55,9 +61,12 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Restart Quiz'),
+            ElevatedButton.icon(
+              onPressed: onRestartQuiz,
+              icon: const Icon(Icons.refresh),
+              label: const Text(
+                'Restart Quiz',
+              ),
             ),
           ],
         ),
