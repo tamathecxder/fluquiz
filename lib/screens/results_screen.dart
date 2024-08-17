@@ -1,6 +1,7 @@
 import 'package:advance_basics_app/data/questions.dart';
 import 'package:advance_basics_app/screens/questions_summary_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({super.key, required this.chosenAnswers});
@@ -30,7 +31,7 @@ class ResultsScreen extends StatelessWidget {
       return question["user_answer"] == question["correct_answer"];
     }).length;
     final String information =
-        "Your score is $totalCorrectQuestions out of $totalQuestions";
+        "You got $totalCorrectQuestions out of $totalQuestions questions correct!";
 
     return SizedBox(
       width: double.infinity,
@@ -42,9 +43,9 @@ class ResultsScreen extends StatelessWidget {
           children: [
             Text(
               information,
-              style: const TextStyle(
+              style: GoogleFonts.lato(
                 color: Colors.white,
-                fontSize: 16,
+                fontSize: 20,
               ),
             ),
             const SizedBox(
