@@ -15,7 +15,7 @@ class ResultsScreen extends StatelessWidget {
       summary.add({
         "question_index": i,
         "question": questions[i].question,
-        "correct_answer": questions[i],
+        "correct_answer": questions[i].answers.first,
         "user_answer": chosenAnswers[i],
       });
     }
