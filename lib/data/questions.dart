@@ -11,7 +11,7 @@ const questions = [
   ),
   QuizQuestion(
     'Who is the current President of the Indonesia?',
-    ['Soekarno', 'Soeharto', 'Jokowi', 'Habibie'],
+    ['Jokowi', 'Soekarno', 'Soeharto', 'Habibie'],
   ),
   QuizQuestion(
     'What is the capital of Indonesia?',
