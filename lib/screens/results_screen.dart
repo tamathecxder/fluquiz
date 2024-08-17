@@ -14,7 +14,7 @@ class ResultsScreen extends StatelessWidget {
 
   final List<String> chosenAnswers;
 
-  List<Map<String, Object>> getSummary() {
+  List<Map<String, Object>> get summary {
     final List<Map<String, Object>> summary = [];
 
     for (int i = 0; i < chosenAnswers.length; i++) {
@@ -31,11 +31,11 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final summary = getSummary();
     final int totalQuestions = questions.length;
-    final int totalCorrectQuestions = summary.where((question) {
-      return question["user_answer"] == question["correct_answer"];
-    }).length;
+    final int totalCorrectQuestions = summary
+        .where(
+            (question) => question["user_answer"] == question["correct_answer"])
+        .length;
     final String information =
         "You got $totalCorrectQuestions out of $totalQuestions questions correct!";
 
